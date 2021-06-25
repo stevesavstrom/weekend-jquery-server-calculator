@@ -46,11 +46,11 @@ app.get(`/calculations`, function(req,res) {
 app.post(`/calculations`, function(req,res) {
 	console.log('Get a POST request!', req.body);
 
-	let newCalc = req.body;
+	let newCalc = req.body.calcToAdd;
   
 	// Push the new item into our array.
 	console.log('Adding a new calculation:', newCalc);
-	calculations.push(newCalc);
+	inputArray.push(newCalc);
   
 	res.sendStatus(201);
    });

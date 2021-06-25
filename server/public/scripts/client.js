@@ -29,8 +29,7 @@ function renderItems(calcArray) {
 		<li>
 		  ${item.numberOne} <span></span> 
 		  ${item.operator} <span></span>  
-		  ${item.numberTwo} <span></span>
-		  =
+		  ${item.numberTwo} <span></span> =
 		  ${item.answer} <span></span>
 		</li>
 	  `);
