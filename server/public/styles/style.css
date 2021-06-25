@@ -1,0 +1,28 @@
+body {
+	padding: 5px;
+	margin: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+	margin-left: 40px;
+}
+
+li {
+	list-style: none;
+	font-size: 20px;
+}
+
+input {
+	padding: 6px;
+}
+
+button {
+	height: 30px;
+	width: 30px;
+}
+
+#clearButton {
+	height: 30px;
+	width: 50px;
+}

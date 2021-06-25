@@ -1,4 +1,4 @@
-// Creating express app...
+// creating express app...
 
 // required express - give us function
 const express = require('express');
@@ -27,10 +27,16 @@ inputArray = [
 	numberTwo: '5',
 	operator: '/',
 	answer: '2'
+	},
+	{
+	numberOne: '5',
+	numberTwo: '3',
+	operator: '+',
+	answer: '8'
 	}
 ];
 
-  // Express routes for server side...
+// Express routes for server side...
 app.get(`/calculations`, function(req,res) {
 	console.log('Request for /calculations was made!');
 	//send response

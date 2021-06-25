@@ -1,7 +1,10 @@
+console.log('testing js');
+
 $(document).ready(onReady);
 
 function onReady() {
 getCalculations();
+$('#equalButton').on('click', addCalculations);
 }
 
 function getCalculations(){
@@ -11,6 +14,7 @@ function getCalculations(){
 	})
 	.then(function(response){
 		console.log('getCalculations working!', response);
+		renderItems(response);
 	})
 	.catch(function(error) {
 		console.log('Error!', error);
@@ -23,7 +27,11 @@ function renderItems(calcArray) {
 	for (let item of calcArray) {
 	  $('#output').append(`
 		<li>
-		  <strong>Item:</strong> ${item.name} <span class="author-name"> <strong>Description:</strong> ${item.description}</span>
+		  ${item.numberOne} <span></span> 
+		  ${item.operator} <span></span>  
+		  ${item.numberTwo} <span></span>
+		  =
+		  ${item.answer} <span></span>
 		</li>
 	  `);
 	}
