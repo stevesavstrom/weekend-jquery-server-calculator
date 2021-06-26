@@ -5,6 +5,19 @@ $(document).ready(onReady);
 function onReady() {
 getCalculations();
 $('#equalButton').on('click', addCalculations);
+
+// $('#operatorButton').on('click', operatorChoice);
+$('.operatorButton').on('click', changeOperator);
+
+}
+
+// global variable for operator (grabbed from button)
+let operator = '';
+
+// Grabs the text of the operator button on click
+function changeOperator(){
+	operator = $(this).text();
+	console.log(operator);
 }
 
 function getCalculations(){
@@ -21,6 +34,19 @@ function getCalculations(){
 	});
 }
 
+// function getAnswers(){
+// 	$.ajax({
+// 		method: 'GET',
+// 		url: '/answers'
+// 	})
+// 	.then(function(response){
+// 		console.log('getAnswers working!', response);
+// 	})
+// 	.catch(function(error) {
+// 		console.log('Error!', error);
+// 	});
+// }
+
 function renderItems(calcArray) {
 	$('#output').empty();
   
@@ -36,6 +62,8 @@ function renderItems(calcArray) {
 	}
   }
 
+  let calcAnswer = 'Answer!';
+
   function addCalculations(){
 	  $.ajax({
 		  method: 'POST',
@@ -43,8 +71,9 @@ function renderItems(calcArray) {
 		  data: {
 			  calcToAdd: {
 				  numberOne: $('#firstNumber').val(),
-				  numberTwo: $('#firstNumber').val(),
-				  operator: $('.operatorButton').val(),
+				  numberTwo: $('#secondNumber').val(),
+				  operator: operator,
+				  answer: calcAnswer
 			  }
 		  }
 	  })
@@ -56,7 +85,7 @@ function renderItems(calcArray) {
 		  alert('Request failed')
 	  });
 	  $('#firstNumber').val('')
-	  $('#firstNumber').val('')
-	  operator: $('.operatorButton').val('')
+	  $('#secondNumber').val('')
+	  $('.operatorButton').val('')
   }
 

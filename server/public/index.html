@@ -15,16 +15,17 @@
 	<h1>Server Side Calculator</h1>
 
 	<input id="firstNumber" type="number"></input>
-	<button class="operatorButton" id="addButton">+</button>
-	<button class="operatorButton" id="subtractButton">-</button>
-	<button class="operatorButton" id="multiplyButton">x</button>
-	<button class="operatorButton" id="divideButton">/</button>
+	<button class="operatorButton" id="addButton" value="+">+</button>
+	<button class="operatorButton" id="subtractButton" value="-">-</button>
+	<button class="operatorButton" id="multiplyButton" value="x">x</button>
+	<button class="operatorButton" id="divideButton" value="/">/</button>
 	<input id="secondNumber" type="number"></input>
 	<button class="submit" id="equalButton">=</button>
 	<button id="clearButton">Clear</button>
 
-	<h2>21</h2>
+	<h2 id="answerOutput">Answer: #</h2>
 
+	<h2>Previous Answers:</h2>
 	<ul id="output">
 	<li>5 + 5 = 10</li>
 	</ul>
