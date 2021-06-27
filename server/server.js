@@ -47,9 +47,9 @@ app.post(`/calculations`, function(req,res) {
 		}
 	}
 
+	// Push the new object into inputArray
 	inputArray.push(newCalc);
 	
-	// Push the new item into our array.
 	console.log('Adding a new calculation:', newCalc);
 	
 	res.sendStatus(201);

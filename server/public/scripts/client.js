@@ -5,11 +5,10 @@ $(document).ready(onReady);
 function onReady() {
 getCalculations();
 $('#equalButton').on('click', addCalculations);
-
-// $('#operatorButton').on('click', operatorChoice);
 $('.operatorButton').on('click', changeOperator);
-
+$('#clearButton').on('click', clearInputs)
 }
+
 
 // global variable for operator (grabbed from button)
 let operator = '';
@@ -34,19 +33,6 @@ function getCalculations(){
 	});
 }
 
-// function getAnswers(){
-// 	$.ajax({
-// 		method: 'GET',
-// 		url: '/answers'
-// 	})
-// 	.then(function(response){
-// 		console.log('getAnswers working!', response);
-// 	})
-// 	.catch(function(error) {
-// 		console.log('Error!', error);
-// 	});
-// }
-
 function renderItems(calcArray) {
 	$('#output').empty();
   
@@ -60,7 +46,21 @@ function renderItems(calcArray) {
 		</li>
 	  `);
 	}
+	if(calcArray.length > 0){
+	$('#answerOutput').empty('')
+	$('#answerOutput').append(`
+	${calcArray[calcArray.length-1].answer} 
+  	`);
+	}
   }
+  
+//   function appendAnswer(){
+// 	$('#answerOutput').append(`
+// 	<h2>
+// 	<p></p>
+// 	</h2>
+// 	`)
+//   }
 
 
   function addCalculations(){
@@ -85,4 +85,8 @@ function renderItems(calcArray) {
 	  $('#secondNumber').val('')
 	  $('.operatorButton').val('')
   }
+
+function clearInputs (){
+	$('input').val('');
+}
 
