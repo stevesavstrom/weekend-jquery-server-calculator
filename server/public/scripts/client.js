@@ -62,20 +62,17 @@ function renderItems(calcArray) {
 	}
   }
 
-  let calcAnswer = 'Answer!';
 
   function addCalculations(){
 	  $.ajax({
 		  method: 'POST',
 		  url: '/calculations',
 		  data: {
-			  calcToAdd: {
 				  numberOne: $('#firstNumber').val(),
 				  numberTwo: $('#secondNumber').val(),
 				  operator: operator,
-				  answer: calcAnswer
+				  answer: undefined
 			  }
-		  }
 	  })
 	  .then(function(response) {
 		  console.log('Testing add calculator function!');
