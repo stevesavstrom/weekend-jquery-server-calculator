@@ -13,7 +13,8 @@
 <body>
 
 	<h1>Server Side Calculator</h1>
-
+	
+<!-- User Interface for inputs and buttons -->
 	<input id="firstNumber" type="number"></input>
 	<button class="operatorButton" id="addButton" value="+">+</button>
 	<button class="operatorButton" id="subtractButton" value="-">-</button>
@@ -21,10 +22,12 @@
 	<button class="operatorButton" id="divideButton" value="/">/</button>
 	<input id="secondNumber" type="number"></input>
 	<button class="submit" id="equalButton">=</button>
-	<button id="clearButton">Clear</button>
+	<button id="clearButton">C</button>
 
-	<h2 id="answerOutput">Answer Here</h2>
+<!-- Current answer output -->
+	<h2 id="answerOutput"></h2>
 
+<!-- Historical record of calculations and answers -->
 	<h2>Previous Answers:</h2>
 	<ul id="output">
 	<li>5 + 5 = 10</li>

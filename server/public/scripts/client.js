@@ -9,16 +9,16 @@ $('.operatorButton').on('click', changeOperator);
 $('#clearButton').on('click', clearInputs)
 }
 
-
 // global variable for operator (grabbed from button)
 let operator = '';
 
-// Grabs the text of the operator button on click
+// captures the text of the operator button on click
 function changeOperator(){
 	operator = $(this).text();
 	console.log(operator);
 }
 
+// AJAX function for GET request from server
 function getCalculations(){
 	$.ajax({
 		method: 'GET',
@@ -31,11 +31,13 @@ function getCalculations(){
 	.catch(function(error) {
 		console.log('Error!', error);
 	});
-}
+} // end getCalculations
 
+// render function to display inputs and answers on DOM
 function renderItems(calcArray) {
 	$('#output').empty();
-  
+
+// loop through items in array and posts all historical inputs on DOM
 	for (let item of calcArray) {
 	  $('#output').append(`
 		<li>
@@ -46,47 +48,42 @@ function renderItems(calcArray) {
 		</li>
 	  `);
 	}
+// appends current answer on DOM and is replaced each new input.
 	if(calcArray.length > 0){
 	$('#answerOutput').empty('')
 	$('#answerOutput').append(`
 	${calcArray[calcArray.length-1].answer} 
   	`);
 	}
-  }
-  
-//   function appendAnswer(){
-// 	$('#answerOutput').append(`
-// 	<h2>
-// 	<p></p>
-// 	</h2>
-// 	`)
-//   }
+  } // end renderItems
 
-
-  function addCalculations(){
-	  $.ajax({
-		  method: 'POST',
-		  url: '/calculations',
-		  data: {
-				  numberOne: $('#firstNumber').val(),
-				  numberTwo: $('#secondNumber').val(),
-				  operator: operator,
-				  answer: undefined
+// AJAX function for GET request from server
+function addCalculations(){
+	$.ajax({
+		method: 'POST',
+		url: '/calculations',
+		data: {
+				numberOne: $('#firstNumber').val(),
+				numberTwo: $('#secondNumber').val(),
+				operator: operator,
+				answer: undefined
 			  }
 	  })
-	  .then(function(response) {
-		  console.log('Testing add calculator function!');
-		  getCalculations();
+	.then(function(response) {
+		console.log('addCalculations function working!');
+		getCalculations();
 	  })
-	  .catch(function(error){
-		  alert('Request failed')
+	.catch(function(error){
+		alert('Request failed')
 	  });
+
 	  $('#firstNumber').val('')
 	  $('#secondNumber').val('')
 	  $('.operatorButton').val('')
-  }
+  } // end addCalculations
 
+// Clears inputs when "C" is clicked
 function clearInputs (){
 	$('input').val('');
-}
+} // end clearInputs
 
