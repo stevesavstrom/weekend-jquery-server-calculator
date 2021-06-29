@@ -41,10 +41,10 @@ function renderItems(calcArray) {
 	for (let item of calcArray) {
 	  $('#output').append(`
 		<li>
-		  ${item.numberOne} <span></span> 
-		  ${item.operator} <span></span>  
-		  ${item.numberTwo} <span></span> =
-		  ${item.answer} <span></span>
+		  ${item.numberOne} 
+		  ${item.operator}  
+		  ${item.numberTwo} =
+		  ${item.answer}
 		</li>
 	  `);
 	}

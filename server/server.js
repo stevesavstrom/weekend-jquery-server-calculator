@@ -44,6 +44,9 @@ app.post(`/calculations`, function(req,res) {
 			newCalc.answer = Number(newCalc.numberOne) * Number(newCalc.numberTwo)
 		} else if (newCalc.operator === '/'){
 			newCalc.answer = Number(newCalc.numberOne) / Number(newCalc.numberTwo)
+		} else {
+			res.status(400).send('Invalid operator: ${newCalc.operator}');
+			return;
 		}
 	}
 
