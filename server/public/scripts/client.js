@@ -63,11 +63,11 @@ function addCalculations(){
 		method: 'POST',
 		url: '/calculations',
 		data: {
-				numberOne: $('#firstNumber').val(),
-				numberTwo: $('#secondNumber').val(),
-				operator: operator,
-				answer: undefined
-			  }
+			numberOne: $('#firstNumber').val(),
+			numberTwo: $('#secondNumber').val(),
+			operator: operator,
+			answer: undefined
+		}
 	  })
 	.then(function(response) {
 		console.log('addCalculations function working!');
